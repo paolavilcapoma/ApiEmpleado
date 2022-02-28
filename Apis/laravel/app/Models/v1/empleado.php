@@ -19,5 +19,4 @@ class empleado extends Model
     protected $direccion='Direccion';
     protected $dni='Dni';
     protected $telefono='Telefono';
-    protected $fec_nacimiento='Fec_Nacimiento';
 }   
