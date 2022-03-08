@@ -10,7 +10,7 @@ class EmpleadoControllers extends Controller
 
     function obtenerLista()
     {
-        $empleado = empleado::all();
+        $empleado = empleado::with("cargo")-> get();
         return $empleado;
     }
 
@@ -22,6 +22,7 @@ class EmpleadoControllers extends Controller
         $empleado->direccion = $request->direccion;
         $empleado->dni = $request->dni;
         $empleado->telefono = $request->telefono;
+        $empleado->cargo_id = $request->cargo_id;
         $empleado->save();
         $response = new \stdClass();
         $response->success = true;
@@ -60,6 +61,7 @@ class EmpleadoControllers extends Controller
             $empleado->direccion = $request->direccion;
             $empleado->dni = $request->dni;
             $empleado->telefono = $request->telefono;
+            $empleado->cargo_id = $request->cargo_id;
             $empleado->save();
         }
         else{
@@ -80,6 +82,7 @@ class EmpleadoControllers extends Controller
             if (isset($request->direccion))      $empleado->direccion = $request->direccion;
             if (isset($request->dni))            $empleado->dni = $request->dni;
             if (isset($request->telefono))       $empleado->telefono = $request->telefono;
+            if (isset($request->cargo_id))       $empleado->cargo_id = $request->cargo_id;
             if (isset($request->nombre)) $empleado->save();
         }
         $response = new \stdClass();
@@ -93,7 +96,7 @@ class EmpleadoControllers extends Controller
         $response = new \stdClass();
         $response->success = true;
         
-        $empleado =  empleado::find($id);
+        $empleado =  empleado::where("cargo_id","=",$id) ->with("cargo")->get();
         return $empleado;
         return response()->json($response, 200);
     }

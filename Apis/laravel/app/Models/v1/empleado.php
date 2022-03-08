@@ -19,4 +19,9 @@ class empleado extends Model
     protected $direccion='Direccion';
     protected $dni='Dni';
     protected $telefono='Telefono';
+    protected $cargo_id='cargo_id';
+
+    function cargo(){
+        return $this->belongsTo(cargo::class,"cargo_id");
+    }
 }   
