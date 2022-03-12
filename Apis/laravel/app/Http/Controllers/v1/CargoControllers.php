@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\cargov1;
+namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\cargov1\cargo;
+use App\Models\v1\cargo;
 class CargoControllers extends Controller
 {
 

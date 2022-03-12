@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\cargov1;
+namespace app\Models\v1;
 use BinaryCabin\LaravelUUID\Traits\HasUUID;
 use Illuminate\Database\Eloquent\Model;
 
