@@ -3,7 +3,7 @@
 use App\Http\Controllers\v1\EmpleadoControllers;
 use App\Http\Controllers\v1\CargoControllers;
 use App\Http\Controllers\v1\UserControllers;
-use App\Http\Controllers\v1\SeguridadCOntroller;
+use App\Http\Controllers\v1\SeguridadController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,8 +38,8 @@ Route::middleware('auth:api')->group (function(){
     Route::patch("/cargo",[CargoControllers::class,"patch"]);
     Route::delete("/cargo/{ids}",[CargoControllers::class,"delete"]);
     
-    Route::post("/user",[UserControllers::class,"store"]);
+    Route::post("/users",[UserControllers::class,"store"]);
 
 });
 
-Route::post("/seguridad",[SeguridadCOntroller::class,"store"]);
+Route::post("/seguridad",[SeguridadController::class,"login"]);
